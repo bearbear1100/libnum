@@ -2,7 +2,7 @@
 
 import math
 import random
-
+from functools import reduce
 
 def len_in_bits(n):
     """
@@ -59,6 +59,19 @@ def nroot(x, n):
     return sign * (mid + 1)
 
 
+def gcd(*lst):
+    """
+    Return gcd of a variable number of arguments.
+    """
+    return abs(reduce(lambda a, b: _gcd(a, b), lst))
+
+
+def lcm(*lst):
+    """
+    Return lcm of a variable number of arguments.
+    """
+    return reduce(lambda a, b: _lcm(a, b), lst)
+
 def _gcd(a, b):
     """
     Return greatest common divisor using Euclid's Algorithm.
@@ -76,21 +89,7 @@ def _lcm(a, b):
     """
     if not a or not b:
         raise ZeroDivisionError("lcm arguments may not be zeros")
-    return abs(a * b) // _gcd(a, b)
-
-
-def gcd(*lst):
-    """
-    Return gcd of a variable number of arguments.
-    """
-    return abs(reduce(lambda a, b: _gcd(a, b), lst))
-
-
-def lcm(*lst):
-    """
-    Return lcm of a variable number of arguments.
-    """
-    return reduce(lambda a, b: _lcm(a, b), lst)
+    return abs(a * b) // gcd(a, b)
 
 
 def xgcd(a, b):

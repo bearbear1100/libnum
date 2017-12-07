@@ -21,11 +21,11 @@ setup(name='libnum',
       provides=['libnum'],
 
       keywords='number prime gcd lcm modular invmod elliptic',
+      
       classifiers=['Development Status :: 2 - Pre-Alpha',
                    'Intended Audience :: Science/Research',
                    'Natural Language :: English',
                    'Operating System :: OS Independent',
-                   'Programming Language :: Python :: 2',
                    'License :: OSI Approved :: MIT License',
                    'Topic :: Scientific/Engineering :: Mathematics',
                    'Topic :: Security :: Cryptography',

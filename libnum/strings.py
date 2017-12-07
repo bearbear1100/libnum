@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-
+from binascii import unhexlify
 
 def s2n(s):
     """
@@ -7,17 +7,17 @@ def s2n(s):
     """
     if not len(s):
         return 0
-    return int(s.encode("hex"), 16)
+    return int(''.join( hex(ord(c))[2:].rjust(2,'0') for c in test),16)
 
 
 def n2s(n):
     """
     Number to string.
     """
-    s = hex(n)[2:].rstrip("L")
+    s = hex(n)[2:]
     if len(s) % 2 != 0:
         s = "0" + s
-    return s.decode("hex")
+    return "".join([s[i:i+2] for i in range(0, len(s), 2)])
 
 
 def s2b(s):
