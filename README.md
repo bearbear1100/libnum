@@ -1,5 +1,7 @@
 
-[libnum](https://github.com/hellman/libnum) : This is a python library fork from hellman and implement with python3.
+## This is a number library fork from hellman and implement with python3.
+
+Original Version (python 2.7) : https://github.com/hellman/libnum
 
 About
 ---------------------
