@@ -7,7 +7,7 @@ def s2n(s):
     """
     if not len(s):
         return 0
-    return int(''.join( hex(ord(c))[2:].rjust(2,'0') for c in test),16)
+    return int(''.join( hex(ord(c))[2:].rjust(2,'0') for c in s),16)
 
 
 def n2s(n):
@@ -17,7 +17,7 @@ def n2s(n):
     s = hex(n)[2:]
     if len(s) % 2 != 0:
         s = "0" + s
-    return "".join([s[i:i+2] for i in range(0, len(s), 2)])
+    return "".join([ chr(int(s[i:i+2],16)) for i in range(0, len(s), 2)])
 
 
 def s2b(s):
