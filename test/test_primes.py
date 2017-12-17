@@ -33,7 +33,7 @@ class PrimesTest(unittest.TestCase):
         self.assertRaises(TypeError, generate_prime, "")
 
     def test_genprime_str(self):
-        begin = "preved medved \xde\xad\xbe\xef\x00\x00\x00\x00"
+        begin = b'preved medved \xde\xad\xbe\xef\x00\x00\x00\x00'
         n = generate_prime_from_string(begin)
         s = n2s(n)
         self.assertTrue(s.startswith(begin))

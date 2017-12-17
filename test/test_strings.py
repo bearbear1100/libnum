@@ -7,7 +7,7 @@ from libnum import *
 
 class StringsTest(unittest.TestCase):
     def test_s2n_n2s(self):
-        s = "long string to test"
+        s = b"long string to test"
         val = 2418187513319072758194084480823884981773628276
         self.assertEqual(s2n(s), val)
         self.assertEqual(n2s(val), s)
