@@ -23,10 +23,11 @@ class CommonMath(unittest.TestCase):
         self.assertRaises(TypeError, len_in_bits, "qwe")
 
     def test_nroot(self):
-        for x in range(0, 100):
+        for x in range(1, 100):
             for p in range(1, 3):
                 n = x ** p
-                self.assertEqual(nroot(n, p), x)
+
+                self.assertEqual( nroot(n, p) , x )
 
         self.assertEqual(nroot(-64, 3), -4)
         self.assertEqual(nroot(100, 2), 10)

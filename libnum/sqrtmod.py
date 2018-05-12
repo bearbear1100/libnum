@@ -2,10 +2,8 @@
 
 import operator
 from itertools import product
-
 from .common import *
 from .modular import *
-
 
 def has_sqrtmod(a, factors=None):
     """
@@ -26,9 +24,10 @@ def has_sqrtmod(a, factors=None):
 
 def sqrtmod(a, factors):
     """
-    x ^ 2 = a (mod *factors).
     Yield square roots by product of @factors as modulus.
-    @factors - list of (prime, power) tuples
+        a - the value take a square root in module factors : (x^2)
+        factors - dict of {prime:power}, ex: factors is 75 : {3:1,5:2}
+    return x | x ^ 2 = a (mod *factors).
     """
     coprime_factors = [p ** k for p, k in factors.items()]
 
@@ -74,8 +73,9 @@ def has_sqrtmod_prime_power(a, p, n=1):
 def sqrtmod_prime_power(a, p, k=1):
     """
     Yield square roots of @a mod @p**@k,
-    @p - prime
-    @k >= 1
+        a - the value take a square root in module factors : (x^2)
+        p,k - which means module N is p**k
+    return x | x ^ 2 = a (mod p**k).
     """
     if k < 1:
         raise ValueError("prime power k < 1: %d" % k)
@@ -239,6 +239,5 @@ def jacobi(a, n):
 
         if a % 4 == 3 and n % 4 == 3:
             s = -s
-
         a, n = n, a
     return

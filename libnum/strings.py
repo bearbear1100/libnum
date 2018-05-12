@@ -1,5 +1,4 @@
 #-*- coding:utf-8 -*-
-from binascii import unhexlify
 
 def s2n(s):
     """
@@ -26,16 +25,30 @@ def s2b(s):
     String to binary.
     """
     ret = []
+    if type(s) == type(b''):
+        s = "".join(map(chr, s))
     for c in s:
         ret.append(bin(ord(c))[2:].zfill(8))
     return "".join(ret)
 
+def switchBS(bs):
+    """
+    Switch bytes and string.
+    """
+    if type(bs) == type(b''):
+        return "".join(map(chr, bs))
+    return n2s(int(''.join( hex(ord(c))[2:].rjust(2,'0') for c in bs),16))
+    
 
 def b2s(b):
     """
     Binary to string.
     """
     ret = []
+    if type(s) == type(b''):
+        b = switchBS(b)
     for pos in range(0, len(b), 8):
         ret.append(chr(int(b[pos:pos + 8], 2)))
-    return "".join(ret)
+    return ''.join(ret)
+
+

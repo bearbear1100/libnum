@@ -1,12 +1,12 @@
-#!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
 import unittest
 from libnum import *
-
+import os
 
 class StringsTest(unittest.TestCase):
-    def test_s2n_n2s(self):
+    
+    def test_ns(self):
         s = b"long string to test"
         val = 2418187513319072758194084480823884981773628276
         self.assertEqual(s2n(s), val)
@@ -14,15 +14,15 @@ class StringsTest(unittest.TestCase):
         self.assertRaises(TypeError, s2n, 100)
         self.assertRaises(TypeError, n2s, "qwe")
 
-    def test_s2b_b2s(self):
-        s = "just string"
-        bs = "01101010011101010111001101110100001000000111"
-        bs += "00110111010001110010011010010110111001100111"
-        self.assertEqual(s2b(s), bs)
-        self.assertEqual(b2s(bs), s)
-        self.assertRaises(TypeError, s2b, 123)
-        self.assertRaises(TypeError, b2s, 123)
-        self.assertRaises(ValueError, b2s, "deadbeef")
+    def test_bs(self):
+        a = os.urandom(100)
+        b = "".join(map(chr, a))
+        print(s2b(a) == s2b(b))
+        a == s2b(b2s(a))
+        self.assertEqual( a, switchBS(switchBS(a)))
+        self.assertEqual( s2b(a) == s2b(b) )
+        self.assertEqual( b2s('10'), '\x02')
+        self.assertEqual( b2s(b'10'), '\x02')
 
 
 if __name__ == "__main__":

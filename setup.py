@@ -13,7 +13,7 @@ setup(name='libnum',
       author_email='hellman1908@gmail.com',
       license='MIT',
 
-      url='https://github.com/hellman/libnum',
+      url='https://github.com/maojui/libnum',
       description='Some number theoretic functions.',
       long_description=libnum.__doc__,
 

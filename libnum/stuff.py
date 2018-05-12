@@ -6,7 +6,6 @@ from functools import reduce
 def grey_code(n):
     return n ^ (n >> 1)
 
-
 def rev_grey_code(g):
     n = 0
     while g:
@@ -14,14 +13,12 @@ def rev_grey_code(g):
         g >>= 1
     return n
 
-
 def factorial(n):
     res = 1
     while n > 1:
         res *= n
         n -= 1
     return res
-
 
 def factorial_get_prime_pow(n, p):
     """
@@ -33,7 +30,6 @@ def factorial_get_prime_pow(n, p):
         count += n // ppow
         ppow *= p
     return count
-
 
 def nCk(n, k):
     """
